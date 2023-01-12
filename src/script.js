@@ -70,3 +70,11 @@ function randomIntFromInterval(min, max){
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
+
+axios.get('https://google.com').then((data)=>{
+    console.log(data)
+})
+
+ findUserDB(1).then((user)=>{
+    console.log(user)
+})
