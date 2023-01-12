@@ -78,35 +78,55 @@ promise1.then((data) => {
 })
 
 
-const promise2 = findUserDB(22)
+const promise2 = findUserDB(2)
 promise2
     .then((user) => {
-    // console.log(user)
-})
-    .catch(()=>{console.warn('Error')})
+        // console.log(user)
+    })
+    .catch(() => {
+        console.warn('Error')
+    })
 
 // const anotherPromise = Promise.all([promise1, promise2])
 const anotherPromise2 = Promise.allSettled([promise1, promise2])
 
 anotherPromise2
     .then((results) => {
-       console.log(results)
+        // console.log(results)
         const dataFromGoogle =
             results[0].status === 'fulfilled'
-        ? results[0].value
-        : {data: {vacancies: null}}
+                ? results[0].value
+                : {data: {vacancies: null}}
 
         const userFromDB = results[1].status === 'fulfilled'
-        ? results[1].value
-        : {name: results[1].reason}
+            ? results[1].value
+            : {name: results[1].reason}
 
-      console.log(dataFromGoogle.data.vacancies + '; ' + userFromDB.name)
+        // console.log(dataFromGoogle.data.vacancies + '; ' + userFromDB.name)
     })
     .catch(() => {
         console.log("Failled")
     })
 
+const resolvedPromise = Promise.resolve([{count: 1}])
+resolvedPromise
+    .then(data => console.log(data))
+    .catch(error => console.warn(error))
 
+const rejectedPromise = Promise.reject({message: 'Some error'})
+rejectedPromise
+    .then(data => console.log(data))
+    .catch(error => console.warn(error))
+
+const usersAPI = {
+    getAllUsers(){
+        return Promise.resolve([{name: 'Dima'}, {name: 'Sveta'}])
+    }
+}
+const pr = usersAPI.getAllUsers();
+pr.then((users)=>{
+    console.log(users)
+})
 
 
 // anotherPromise
