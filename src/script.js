@@ -72,61 +72,85 @@ function randomIntFromInterval(min, max) {
 }
 
 
-const promise1 = axios.get('https://google.com')
-promise1.then((data) => {
-    // console.log(data)
-})
+
+// findUserDB(1)
+// .then(user=> user.name)
+// .then(name=> console.log(name))
 
 
-const promise2 = findUserDB(2)
-promise2
-    .then((user) => {
-        // console.log(user)
-    })
-    .catch(() => {
-        console.warn('Error')
-    })
+// axios.get('https://google.com')
+//     .then(res => res.data)
+//     .then(data => console.log(data))
 
-// const anotherPromise = Promise.all([promise1, promise2])
-const anotherPromise2 = Promise.allSettled([promise1, promise2])
+const getVacanciesFromGoogle = () => {
+    // const pr = axios.get('https://google.com')
+    // const pr2 = pr.then(res => res.data)
+    // return pr2
 
-anotherPromise2
-    .then((results) => {
-        // console.log(results)
-        const dataFromGoogle =
-            results[0].status === 'fulfilled'
-                ? results[0].value
-                : {data: {vacancies: null}}
-
-        const userFromDB = results[1].status === 'fulfilled'
-            ? results[1].value
-            : {name: results[1].reason}
-
-        // console.log(dataFromGoogle.data.vacancies + '; ' + userFromDB.name)
-    })
-    .catch(() => {
-        console.log("Failled")
-    })
-
-const resolvedPromise = Promise.resolve([{count: 1}])
-resolvedPromise
-    .then(data => console.log(data))
-    .catch(error => console.warn(error))
-
-const rejectedPromise = Promise.reject({message: 'Some error'})
-rejectedPromise
-    .then(data => console.log(data))
-    .catch(error => console.warn(error))
-
-const usersAPI = {
-    getAllUsers(){
-        return Promise.resolve([{name: 'Dima'}, {name: 'Sveta'}])
-    }
+   return axios.get('https://google.com')
+        .then(res => res.data)
+       .then(data => data.vacancies)
 }
-const pr = usersAPI.getAllUsers();
-pr.then((users)=>{
-    console.log(users)
-})
+
+getVacanciesFromGoogle().then(vacanciesCount => console.log(vacanciesCount))
+
+
+
+// const promise1 = axios.get('https://google.com')
+// promise1.then((data) => {
+//     // console.log(data)
+// })
+
+
+// const promise2 = findUserDB(2)
+// promise2
+//     .then((user) => {
+//         // console.log(user)
+//     })
+//     .catch(() => {
+//         console.warn('Error')
+//     })
+//
+// // const anotherPromise = Promise.all([promise1, promise2])
+// const anotherPromise2 = Promise.allSettled([promise1, promise2])
+//
+// anotherPromise2
+//     .then((results) => {
+//         // console.log(results)
+//         const dataFromGoogle =
+//             results[0].status === 'fulfilled'
+//                 ? results[0].value
+//                 : {data: {vacancies: null}}
+//
+//         const userFromDB = results[1].status === 'fulfilled'
+//             ? results[1].value
+//             : {name: results[1].reason}
+//
+//         // console.log(dataFromGoogle.data.vacancies + '; ' + userFromDB.name)
+//     })
+//     .catch(() => {
+//         console.log("Failled")
+//     })
+//
+// const resolvedPromise = Promise.resolve([{count: 1}])
+// resolvedPromise
+//     .then(data => console.log(data))
+//     .catch(error => console.warn(error))
+//
+// const rejectedPromise = Promise.reject({message: 'Some error'})
+// rejectedPromise
+//     .then(data => console.log(data))
+//     .catch(error => console.warn(error))
+//
+// const usersAPI = {
+//     getAllUsers(){
+//         return Promise.resolve([{name: 'Dima'}, {name: 'Sveta'}])
+//     }
+// }
+// const pr = usersAPI.getAllUsers();
+// pr.then((users)=>{
+//     console.log(users)
+// })
 
 
 // anotherPromise
