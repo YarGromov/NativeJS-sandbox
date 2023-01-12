@@ -1,20 +1,20 @@
 const axios = {
-    _fake(url, data){
-        return new Promise((resolve)=>{
-            setTimeout(()=>{
+    _fake(url, data) {
+        return new Promise((resolve) => {
+            setTimeout(() => {
                 let responseData = {
                     text: `${url} loves you`
                 };
-                if(url.indexOf('it-kamasutra') > 0){
+                if (url.indexOf('it-kamasutra') > 0) {
                     responseData = {
                         requestedCount: data.count,
                         message: 'we will prepare students for you'
                     }
-                } else if(url.indexOf('google') > 0) {
+                } else if (url.indexOf('google') > 0) {
                     responseData = {
                         vacancies: 12
                     }
-                } else if (url.indexOf('microsoft') > 0){
+                } else if (url.indexOf('microsoft') > 0) {
                     responseData = {
                         vacancies: 21
                     }
@@ -29,10 +29,10 @@ const axios = {
             }, randomIntFromInterval(500, 1500))
         })
     },
-    post(url, data){
+    post(url, data) {
         return this._fake(url, data)
     },
-    get(url, data){
+    get(url, data) {
         return this._fake(url, data)
     }
 }
@@ -55,35 +55,76 @@ const findUserDB = (id) => {
             friend: 2
         }
     ]
-    return new Promise((res,rej)=>{
-        setTimeout(()=>{
+    return new Promise((res, rej) => {
+        setTimeout(() => {
             let user = users.find(u => u.id == id)
-            if (user == null ){
+            if (user == null) {
                 rej('user not found')
-            } else{
+            } else {
                 res(user)
             }
         }, randomIntFromInterval(500, 1500))
     })
 }
-function randomIntFromInterval(min, max){
+
+function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
 
 const promise1 = axios.get('https://google.com')
-promise1.then((data)=>{
-    console.log(data)
+promise1.then((data) => {
+    // console.log(data)
 })
 
 
-
-const promise2 = findUserDB(2)
-promise2.then((user)=>{
-    console.log(user)
+const promise2 = findUserDB(22)
+promise2
+    .then((user) => {
+    // console.log(user)
 })
+    .catch(()=>{console.warn('Error')})
 
-const anotherPromise = Promise.all([promise1,promise2])
-anotherPromise.then(()=>{
-    console.log('Finish all!')
-})
+// const anotherPromise = Promise.all([promise1, promise2])
+const anotherPromise2 = Promise.allSettled([promise1, promise2])
+
+anotherPromise2
+    .then((results) => {
+       console.log(results)
+        const dataFromGoogle =
+            results[0].status === 'fulfilled'
+        ? results[0].value
+        : {data: {vacancies: null}}
+
+        const userFromDB = results[1].status === 'fulfilled'
+        ? results[1].value
+        : {name: results[1].reason}
+
+      console.log(dataFromGoogle.data.vacancies + '; ' + userFromDB.name)
+    })
+    .catch(() => {
+        console.log("Failled")
+    })
+
+
+
+
+// anotherPromise
+//     .then((results) => {
+//         const dataFromGoogle = results[0]
+//         const userFromDB = results[1]
+//         console.log(dataFromGoogle.data.vacancies + '; ' + userFromDB.name)
+//     })
+//     .catch(() => {
+//         console.log("Failled")
+//     })
+//
+
+
+
+
+
+
+
+
+
