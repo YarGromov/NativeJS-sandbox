@@ -78,12 +78,12 @@ promise1.then((data)=>{
 
 
 
-const user = findUserDB(2)
-user.then((user)=>{
+const promise2 = findUserDB(2)
+promise2.then((user)=>{
     console.log(user)
 })
-.catch((error)=>{
-    console.warn(error)
-})
 
-console.log('Finish')
+const anotherPromise = Promise.all([promise1,promise2])
+anotherPromise.then(()=>{
+    console.log('Finish all!')
+})
