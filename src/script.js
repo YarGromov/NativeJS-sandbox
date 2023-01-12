@@ -72,35 +72,86 @@ function randomIntFromInterval(min, max) {
 }
 
 
+findUserDB(1)
+    .then(user => {
+        console.log(user)
+        return user
+    })
+    .then(user => findUserDB(user.friend))
+    .then(friend1 => {
+        console.log(friend1)
+        return friend1
+    })
+    .then(friend1 => findUserDB(friend1.friend))
+    .then(friend2 => console.log(friend2))
+    .finally(()=>{console.log('Finish')})
+
+
+// const friendsPromise = findUserDB(1)
+//     .then(user => {
+//         console.log(user)
+//         return user
+//     })
+//     .then(user => findUserDB(user.friend))
+//     .then(friend1 => {
+//         console.log(friend1)
+//         return friend1
+//     } )
+//     .then(friend1 => {
+//         const pr = findUserDB(friend1.friend)
+//         return pr
+//     })
+//     .then(friend2 => {
+//         console.log(friend2)
+//         return friend2.name
+//     })
+//     .then(friend2Name => console.log(friend2Name))
+
+// let lastPromise = findUserDB(1)
+//     .then(user => user.name)
+//     .then(name => {
+//         console.log('Yaroslav')
+//         return 100
+//     })
+//     .then(number => {
+//         console.log(number)
+//         return number + 1
+//     })
+//     .then(number => {
+//         console.log(number)
+//         return number + 1
+//     })
+//     .then(number => {
+//         console.log(number)
+//         return number + 1
+//     })
+//
+// console.log(lastPromise)
 
 // findUserDB(1)
 // .then(user=> user.name)
 // .then(name=> console.log(name))
 
-
 // axios.get('https://google.com')
 //     .then(res => res.data)
 //     .then(data => console.log(data))
-
-const getVacanciesFromGoogle = () => {
-    // const pr = axios.get('https://google.com')
-    // const pr2 = pr.then(res => res.data)
-    // return pr2
-
-   return axios.get('https://google.com')
-        .then(res => res.data)
-       .then(data => data.vacancies)
-}
-
-getVacanciesFromGoogle().then(vacanciesCount => console.log(vacanciesCount))
-
-
+//
+// const getVacanciesFromGoogle = () => {
+//     // const pr = axios.get('https://google.com')
+//     // const pr2 = pr.then(res => res.data)
+//     // return pr2
+//
+//    return axios.get('https://google.com')
+//         .then(res => res.data)
+//        .then(data => data.vacancies)
+// }
+//
+// getVacanciesFromGoogle().then(vacanciesCount => console.log(vacanciesCount))
 
 // const promise1 = axios.get('https://google.com')
 // promise1.then((data) => {
 //     // console.log(data)
 // })
-
 
 // const promise2 = findUserDB(2)
 // promise2
@@ -151,7 +202,6 @@ getVacanciesFromGoogle().then(vacanciesCount => console.log(vacanciesCount))
 // pr.then((users)=>{
 //     console.log(users)
 // })
-
 
 // anotherPromise
 //     .then((results) => {
