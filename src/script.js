@@ -71,10 +71,19 @@ function randomIntFromInterval(min, max){
 }
 
 
-axios.get('https://google.com').then((data)=>{
+const promise1 = axios.get('https://google.com')
+promise1.then((data)=>{
     console.log(data)
 })
 
- findUserDB(1).then((user)=>{
+
+
+const user = findUserDB(2)
+user.then((user)=>{
     console.log(user)
 })
+.catch((error)=>{
+    console.warn(error)
+})
+
+console.log('Finish')
