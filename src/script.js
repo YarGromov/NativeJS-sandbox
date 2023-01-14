@@ -79,7 +79,15 @@ findUserDB(1).then(user => {
 
 
 function getNumber(){
-    return  Promise.resolve(Math.random())
+
+    const promise = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve(Math.random())
+        }, 2000)
+    })
+    return promise
+
+    // return  Promise.resolve(Math.random())
 }
 
 getNumber().then(num => console.log(`${num} - number 1`))
