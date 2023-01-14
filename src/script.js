@@ -72,19 +72,33 @@ function randomIntFromInterval(min, max) {
 }
 
 
-findUserDB(1)
-    .then(user => {
-        console.log(user)
-        return user
-    })
-    .then(user => findUserDB(user.friend))
-    .then(friend1 => {
-        console.log(friend1)
-        return friend1
-    })
-    .then(friend1 => findUserDB(friend1.friend))
-    .then(friend2 => console.log(friend2))
-    .finally(()=>{console.log('Finish')})
+
+async function returnUser(){
+    let user = await findUserDB(1)
+    console.log(user.name)
+    let friend1 = await findUserDB(user.friend)
+    console.log(friend1.name)
+    let friend2 = await findUserDB(friend1.friend)
+    console.log(friend2.name)
+}
+returnUser()
+
+
+
+// findUserDB(1)
+//     .then(user => {
+//         console.log(user)
+//         return user
+//     })
+//     .then(user => findUserDB(user.friend))
+//     .then(friend1 => {
+//         console.log(friend1)
+//         return friend1
+//     })
+//     .then(friend1 => findUserDB(friend1.friend))
+//     .then(friend2 => console.log(friend2))
+//     .finally(()=>{console.log('Finish')})
+
 
 
 // const friendsPromise = findUserDB(1)
@@ -216,7 +230,7 @@ findUserDB(1)
 
 
 
-
+// 1.45
 
 
 
