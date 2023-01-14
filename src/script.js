@@ -72,7 +72,37 @@ function randomIntFromInterval(min, max) {
 }
 
 
+const api = {
+    save(){
 
+    },
+    read(){
+        return {name: 'it-kamasutra'}
+    }
+}
+
+async function xxx(){
+    return 100200
+}
+
+async function run(){
+    let a =  xxx();
+    console.log(a)
+}
+run()
+
+
+// async function run(){
+//     await api.save();
+//     console.log('saved')
+//     let data = await api.read()
+//     console.log('read: ',  data)
+// }
+// run()
+
+
+
+//-------------
 // findUserDB(1)
 //     .then(user => {
 //         console.log(user.name)
@@ -91,25 +121,25 @@ function randomIntFromInterval(min, max) {
 //     .catch(error => alert(error))
 
 
-async function returnUser(){
-   try{
-       let user = await findUserDB(1)
-       console.log(user.name)
-       let friend1;
-       try {
-            friend1 = await findUserDB(user.friend)
-
-       } catch(error) {
-            friend1 = {name: 'Friend Bot', friend: 3}
-       }
-       console.log(friend1.name)
-       let friend2 = await findUserDB(friend1.friend)
-       console.log(friend2.name)
-   } catch (error){
-       alert(error)
-   }
-}
-returnUser()
+// async function returnUser(){
+//    try{
+//        let user = await findUserDB(1)
+//        console.log(user.name)
+//        let friend1;
+//        try {
+//             friend1 = await findUserDB(user.friend)
+//
+//        } catch(error) {
+//             friend1 = {name: 'Friend Bot', friend: 3}
+//        }
+//        console.log(friend1.name)
+//        let friend2 = await findUserDB(friend1.friend)
+//        console.log(friend2.name)
+//    } catch (error){
+//        alert(error)
+//    }
+// }
+// returnUser()
 
 // -----------------
 
