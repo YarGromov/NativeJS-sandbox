@@ -73,16 +73,28 @@ function randomIntFromInterval(min, max) {
 
 
 
-async function returnUser(){
-    let user = await findUserDB(1)
+findUserDB(1).then(user => {
     console.log(user.name)
-    let friend1 = await findUserDB(user.friend)
-    console.log(friend1.name)
-    let friend2 = await findUserDB(friend1.friend)
-    console.log(friend2.name)
-}
-returnUser()
+})
 
+
+function getNumber(){
+    return  Promise.resolve(Math.random())
+}
+
+getNumber().then(num => console.log(`${num} - number 1`))
+getNumber().then(num => console.log(`${num} - number 2`))
+
+
+// async function returnUser(){
+//     let user = await findUserDB(1)
+//     console.log(user.name)
+//     let friend1 = await findUserDB(user.friend)
+//     console.log(friend1.name)
+//     let friend2 = await findUserDB(friend1.friend)
+//     console.log(friend2.name)
+// }
+// returnUser()
 
 
 // findUserDB(1)
