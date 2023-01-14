@@ -72,26 +72,63 @@ function randomIntFromInterval(min, max) {
 }
 
 
+const repo = {
+    save(data){
+        try {
+            localStorage.setItem('some-key-1', JSON.stringify(data))
+        } catch (error){
+            return false
+        }
+        return true
+    },
+    saveAsync(data){
+        const promise = new Promise((resolve,reject)=>{
+            try {
+                localStorage.setItem('some-key-2', JSON.stringify(data))
+                resolve()
+            } catch (error){
+                reject(error)
+            }
+        })
 
-findUserDB(1).then(user => {
-    console.log(user.name)
-})
-
-
-function getNumber(){
-
-    const promise = new Promise((resolve,reject)=>{
-        setTimeout(()=>{
-            resolve(Math.random())
-        }, 2000)
-    })
-    return promise
-
-    // return  Promise.resolve(Math.random())
+        return promise
+    }
 }
 
-getNumber().then(num => console.log(`${num} - number 1`))
-getNumber().then(num => console.log(`${num} - number 2`))
+const promise = repo.saveAsync({name: 'JAVASCRIPT'})
+promise
+    .then(()=> console.log('SAVED with promise'))
+    .catch((error)=> console.warn('NOT SAVED ' + error))
+
+
+const result = repo.save({name: 'JAVASCRIPT COOL'})
+if (result){
+    console.log('SAVED without promise')
+} else {
+    console.warn('NOT SAVED')
+}
+
+// findUserDB(1).then(user => {
+//     console.log(user.name)
+// })
+
+
+// function getNumber(){
+//
+//     const promise = new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve(Math.random())
+//         }, 2000)
+//     })
+//     return promise
+//
+//     // return  Promise.resolve(Math.random())
+// }
+//
+// getNumber().then(num => console.log(`${num} - number 1`))
+// getNumber().then(num => console.log(`${num} - number 2`))
+
+
 
 
 // async function returnUser(){
