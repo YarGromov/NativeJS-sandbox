@@ -42,7 +42,7 @@ const findUserDB = (id) => {
         {
             id: 1,
             name: 'Yar',
-            friend: 3
+            friend: 34
         },
         {
             id: 2,
@@ -72,41 +72,137 @@ function randomIntFromInterval(min, max) {
 }
 
 
-const repo = {
-    save(data){
-        try {
-            localStorage.setItem('some-key-1', JSON.stringify(data))
-        } catch (error){
-            return false
-        }
-        return true
-    },
-    saveAsync(data){
-        const promise = new Promise((resolve,reject)=>{
-            try {
-                localStorage.setItem('some-key-2', JSON.stringify(data))
-                resolve()
-            } catch (error){
-                reject(error)
-            }
-        })
 
-        return promise
-    }
+// findUserDB(1)
+//     .then(user => {
+//         console.log(user.name)
+//         return user.friend
+//     })
+//     .then(friendId => findUserDB(friendId))
+//     .catch(error => {
+//         return {name: 'Friend Bot', friend: 3}
+//     })
+//     .then(friend1 => {
+//         console.log(friend1.name)
+//         return friend1.friend
+//     })
+//     .then(friend1Id => findUserDB(friend1Id))
+//     .then(friend2 => console.log(friend2.name))
+//     .catch(error => alert(error))
+
+
+async function returnUser(){
+   try{
+       let user = await findUserDB(1)
+       console.log(user.name)
+       let friend1;
+       try {
+            friend1 = await findUserDB(user.friend)
+
+       } catch(error) {
+            friend1 = {name: 'Friend Bot', friend: 3}
+       }
+       console.log(friend1.name)
+       let friend2 = await findUserDB(friend1.friend)
+       console.log(friend2.name)
+   } catch (error){
+       alert(error)
+   }
 }
+returnUser()
 
-const promise = repo.saveAsync({name: 'JAVASCRIPT'})
-promise
-    .then(()=> console.log('SAVED with promise'))
-    .catch((error)=> console.warn('NOT SAVED ' + error))
+// -----------------
+
+// const wait = (ms) => {
+//     return new Promise((res)=>{
+//         setTimeout(()=>{
+//             res()
+//         }, ms)
+//     })
+// }
+//
+// async function runCount(){
+//     const num1 = await wait(1000)
+//     console.log(1)
+//     const num2 = await wait(2000)
+//     console.log(2)
+//     const num3 = await wait(3000)
+//     console.log(3)
+// }
+// runCount()
 
 
-const result = repo.save({name: 'JAVASCRIPT COOL'})
-if (result){
-    console.log('SAVED without promise')
-} else {
-    console.warn('NOT SAVED')
-}
+// function oneSecond(){
+//     setTimeout(()=>{
+//         console.log(1)
+//         setTimeout(()=>{
+//             console.log(2)
+//             setTimeout(()=>{
+//                 console.log(3)
+//             },1000)
+//         },1000)
+//     },1000)
+//
+// }
+// oneSecond()
+
+
+// const repo = {
+//     save(data) {
+//         try {
+//             localStorage.setItem('some-key-1', JSON.stringify(data))
+//         } catch (error) {
+//             return false
+//         }
+//         return true
+//     },
+//     saveAsync(data) {
+//         const promise = new Promise((resolve, reject) => {
+//             try {
+//                 localStorage.setItem('some-key-2', JSON.stringify(data))
+//                 resolve()
+//             } catch (error) {
+//                 reject(error)
+//             }
+//         })
+//         return promise
+//     },
+//     read() {
+//
+//         return new Promise((res, rej) => {
+//             const data = localStorage.getItem('some-key')
+//             if (!data) {
+//                 res(null)
+//             } else {
+//                 res(JSON.parse(data))
+//             }
+//         })
+//     }
+// }
+//
+//
+// const result = repo.save({name: 'JAVASCRIPT COOL'})
+// if (result) {
+//     console.log('SAVED without promise')
+// } else {
+//     console.warn('NOT SAVED')
+// }
+//
+//
+// const promise = repo.saveAsync({name: 'JAVASCRIPT'})
+// promise
+//     .then(() => console.log('SAVED with promise'))
+//     .catch((error) => console.warn('NOT SAVED ' + error))
+//
+// const run = async () => {
+//     await repo.saveAsync({name: 'JAVASCRIPT'})
+//     console.log('SAVED WITH AWAIT')
+//
+//     const data = await repo.read()
+//     console.log(data)
+// }
+// run()
+
 
 // findUserDB(1).then(user => {
 //     console.log(user.name)
@@ -127,8 +223,6 @@ if (result){
 //
 // getNumber().then(num => console.log(`${num} - number 1`))
 // getNumber().then(num => console.log(`${num} - number 2`))
-
-
 
 
 // async function returnUser(){
@@ -155,7 +249,6 @@ if (result){
 //     .then(friend1 => findUserDB(friend1.friend))
 //     .then(friend2 => console.log(friend2))
 //     .finally(()=>{console.log('Finish')})
-
 
 
 // const friendsPromise = findUserDB(1)
@@ -284,7 +377,6 @@ if (result){
 //         console.log("Failled")
 //     })
 //
-
 
 
 // 1.45
