@@ -102,4 +102,36 @@ console.log(itUnShift(students, {key: 'value'}
 
 
 
+//this
+function getLetngth(){
+    return this.length
+}
+
+Array.prototype.hey = getLetngth;
+const arr = [1];
+console.log(arr.hey())
+
+
+Array.prototype.getName = function (){
+    for (let i = 0; i < this.length; i++) {
+        console.log(this[i].name)
+    }
+}
+
+students.getName()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
