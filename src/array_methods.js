@@ -75,6 +75,30 @@ const itFilter = (array, func) => {
     return result;
 }
 
+//includes
+
+const itIncludes = (array, value) => {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === value) {
+            return true
+        }
+    }
+    return false
+}
+console.log(itIncludes(students, students[0]))
+
+// unShift
+
+const itUnShift = (array, value) => {
+    for (let i = array.length-1 ; i > 0; i--) {
+        array[i + 1] = array[i]
+    }
+    array[0] = value
+    return array;
+}
+console.log(itUnShift(students, {key: 'value'}
+))
+
 
 
 
