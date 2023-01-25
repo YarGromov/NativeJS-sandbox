@@ -10,6 +10,11 @@ const copyUser = {}
 copyUser.name = user.name
 copyUser.age = user.age
 
-copyUser.age = 22
+const copyUser2 = {...user}
 
-console.log(user.age)
+console.log(copyUser2)
+
+
+
+
+
