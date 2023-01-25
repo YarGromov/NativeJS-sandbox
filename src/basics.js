@@ -30,6 +30,16 @@ console.log(students[0] === shallowCopyStudents[0])
 console.log(students === deepCopyStudents)
 
 
+const deepCopyWithMap = students.map((el)=> {
+    return {...el}
+})
+
+deepCopyWithMap[0].name = 'Petuh'
+console.log(students)
+
+
+
+
 
 
 
