@@ -20,4 +20,6 @@ const handler2 = (e) => {
 
 sm.addEventListener('click', handler1)
 sm.addEventListener('click', handler2)
-sm.removeEventListener('click', handler1)
+// sm.removeEventListener('click', handler1)
+
+//45
