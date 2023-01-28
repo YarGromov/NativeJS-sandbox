@@ -9,6 +9,7 @@ const md = document.getElementById('medium')
 const bg = document.getElementById('big')
 
 const handler1 = (e) => {
+    e.stopPropagation()
     if(e.target.tagName === 'BUTTON'){
         alert(e.target.id)
     }
@@ -17,7 +18,9 @@ const handler2 = (e) => {
     alert(e)
 }
 
-
+const handler3 = (e) => {
+    alert('Yo!')
+}
 // sm.onclick = handler1;
 // sm.onclick = handler2;
 // sm.onclick = null;
@@ -26,8 +29,6 @@ const handler2 = (e) => {
 // sm.addEventListener('click', handler2)
 // sm.removeEventListener('click', handler1)
 
-//45
-
 sm.onclick = handler1
-// md.onclick = handler1
-// bg.onclick = handler1
+md.onclick = handler2
+bg.onclick = handler3
