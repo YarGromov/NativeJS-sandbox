@@ -42,3 +42,21 @@ bg.onclick = handler3
 
 const a = document.getElementById('a')
 a.addEventListener("click", handler4)
+
+
+// HTML
+// <div id="big">
+//     <div id="medium">
+//     <div id="small">
+//     <button id="1">1</button>
+// <button id="2">2</button>
+// <button id="3">3</button>
+// <button id="4">4</button>
+// <button id="5">5</button>
+// </div>
+// </div>
+// </div>
+// <a id="a" target="_blank" href="https://learn.javascript.ru/document">Google</a>
+//
+//
+// <script src="src/events.js"></script>
