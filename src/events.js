@@ -9,7 +9,9 @@ const md = document.getElementById('medium')
 const bg = document.getElementById('big')
 
 const handler1 = (e) => {
-    console.log(e.currentTarget)
+    if(e.target.tagName === 'BUTTON'){
+        alert(e.target.id)
+    }
 }
 const handler2 = (e) => {
     alert(e)
@@ -27,5 +29,5 @@ const handler2 = (e) => {
 //45
 
 sm.onclick = handler1
-md.onclick = handler1
-bg.onclick = handler1
+// md.onclick = handler1
+// bg.onclick = handler1
