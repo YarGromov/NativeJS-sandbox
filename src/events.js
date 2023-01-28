@@ -21,6 +21,13 @@ const handler2 = (e) => {
 const handler3 = (e) => {
     alert('Yo!')
 }
+
+const handler4 = (e) => {
+    e.preventDefault()
+    alert('LoL')
+
+}
+
 // sm.onclick = handler1;
 // sm.onclick = handler2;
 // sm.onclick = null;
@@ -32,3 +39,6 @@ const handler3 = (e) => {
 sm.onclick = handler1
 md.onclick = handler2
 bg.onclick = handler3
+
+const a = document.getElementById('a')
+a.addEventListener("click", handler4)
