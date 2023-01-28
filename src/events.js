@@ -5,12 +5,14 @@
 // {...} - event, ev, e
 
 const sm = document.getElementById('small')
+const md = document.getElementById('medium')
+const bg = document.getElementById('big')
 
 const handler1 = (e) => {
-    alert(e)
+    console.log(e.currentTarget)
 }
 const handler2 = (e) => {
-    console.log(e)
+    alert(e)
 }
 
 
@@ -18,8 +20,12 @@ const handler2 = (e) => {
 // sm.onclick = handler2;
 // sm.onclick = null;
 
-sm.addEventListener('click', handler1)
-sm.addEventListener('click', handler2)
+// sm.addEventListener('click', handler1)
+// sm.addEventListener('click', handler2)
 // sm.removeEventListener('click', handler1)
 
 //45
+
+sm.onclick = handler1
+md.onclick = handler1
+bg.onclick = handler1
