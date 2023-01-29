@@ -15,6 +15,8 @@ const numbers = [1000, 25, 777, 6666, 0, -20, '+20']
 
 console.log(numbers.sort())
 
-const sorti = (a, b) => a - b;
+const compareFunc = (a, b) => a - b;
+console.log(numbers.sort(compareFunc))
 
-console.log(numbers.sort(sorti))
+console.log(numbers.reverse())
+console.log(numbers)
