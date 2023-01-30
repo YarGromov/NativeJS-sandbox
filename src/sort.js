@@ -74,7 +74,7 @@ console.log(students.sort(compareFuncByNumForObj))
 
 
 //bubble sort
-const nums = [12, 10, 45, 23, 66, 78, 91, 32, 11]
+const nums = [12, 10, 45, 23, 66, 78, 91, 32, 11,9]
 
 for (let i = 0; i < nums.length -1; i++) {
     if(nums[i] > nums[i + 1]) {
@@ -85,17 +85,21 @@ for (let i = 0; i < nums.length -1; i++) {
 }
 console.log(nums)
 
-for (let j = 0; j < nums.length; j++) {
-    for (let i = 0; i < nums.length -1; i++) {
+for (let j = 0; j < nums.length -1; j++) {
+    let isSorted = true;
+    for (let i = 0; i < nums.length -1 - j; i++) {
         if(nums[i] > nums[i + 1]) {
-            let temp = nums[i];
-            nums[i] = nums[i + 1]
-            nums[i+1] = temp
+            isSorted = false;
+            // let temp = nums[i];
+            // nums[i] = nums[i + 1]
+            // nums[i+1] = temp
+            [nums[i+1], nums[i]] = [nums[i], nums[i+1]]
         }
     }
+    if(isSorted) break
 }
 console.log(nums)
-//0((n-1) * n)
+
 
 
 
