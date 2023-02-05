@@ -261,23 +261,121 @@
 // }
 // console.log([10, 20, 30, 40, 50].divideBy(10))
 
+//=====================
 
+// document.querySelector('.b-1').onclick = function (){
+//     console.log(this)
+//     this.style.background = 'orange';
+//
 
-
-
-
-
-
-
-
-
-
-
-
-// const b1 = document.querySelector('.b-1')
-// b1.onclick = test;
-// function test(){
+// document.querySelector('.b-1').addEventListener('click', f1)
+//
+// function f1(){
+//     console.log(this)
 //     this.style.background = 'orange';
 // }
+//
+// let p = document.querySelectorAll('p')
+// for (let i = 0; i < p.length; i++) {
+//     p[i].onclick = f1
+// }
+//
+// class U2 {
+//     constructor(model) {
+//         this.model = model;
+//     }
+//     showThis(){
+//         console.log(this)
+//     }
+// }
+// const boat = new U2('744')
+// const boat2 = new U2('333')
+//
+// console.log(boat)
+// console.log(boat2)
+// boat.showThis();
+// boat2.showThis();
+//
+// class YellowSubmarine extends U2 {
+//     constructor(model, color) {
+//         super(model)
+//         this.color = color;
+//         console.log(this.model)
+//     }
+// }
+// let b = new YellowSubmarine(666, 'red')
+// console.log(b)
+// console.log(b.model)
+// console.log('Inside the program')
+// console.log(this)
+// function abc(){
+//     console.log('Inside a function')
+//     console.log(this)
+//     console.log(3+5/2)
+//     this.style.background = 'red';
+// }
+// abc()
+// document.querySelector('.lorem').onclick = abc
+
+// const p = document.querySelectorAll('p')
+// p.forEach(function (element){
+//     element.onclick = abc;
+// })
+// document.querySelector('p').addEventListener('click', abc)
+//
+// const p = document.querySelectorAll('p')
+// p.forEach(function (element){
+//     element.addEventListener('click', abc)
+// })
+
+
+const b1 = document.querySelector('.b-1')
+const b2 = document.querySelector('.b-2')
+// b1.onclick = test;
+
+// function test(){
+//     console.log(this)
+//     this.style.background = 'orange';
+// }
+
+// test()  !!!Error!!!
+
+//Call()
+// function.call(context, arg1, arg2)
+
+// test.call(b1) //сразу вызвал функцию, this === b1
+// b2.onclick = test;
+// b1.onclick = function(){
+//     test.call(b2)
+// }
+// b2.onclick = function(){
+//     test.call(b1)
+// }
+function test(color, num){
+    console.log(this)
+    console.log(num)
+    this.style.background = color;
+}
+
+// b2.onclick = function(){
+//     test.call(b1,'green', 444)
+// }
+// b1.onclick = function(){
+//     test.apply(b2,['blue', 555])
+// }
+
+//bind
+// let a = test.bind(b1, 'orange', 777);
+// let b = test.bind(b2, 'red', 999);
+//
+// b1.onclick = a;
+// b2.onclick = b;
+
+//===============
+
+
+
+
+
 
 
