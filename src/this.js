@@ -329,8 +329,8 @@
 // })
 
 
-const b1 = document.querySelector('.b-1')
-const b2 = document.querySelector('.b-2')
+// const b1 = document.querySelector('.b-1')
+// const b2 = document.querySelector('.b-2')
 // b1.onclick = test;
 
 // function test(){
@@ -351,11 +351,11 @@ const b2 = document.querySelector('.b-2')
 // b2.onclick = function(){
 //     test.call(b1)
 // }
-function test(color, num){
-    console.log(this)
-    console.log(num)
-    this.style.background = color;
-}
+// function test(color, num){
+//     console.log(this)
+//     console.log(num)
+//     this.style.background = color;
+// }
 
 // b2.onclick = function(){
 //     test.call(b1,'green', 444)
@@ -373,8 +373,90 @@ function test(color, num){
 
 //===============
 
+// function showThis(){
+//     console.log(this)
+// }
+// showThis()
+'use strict';
+// function showThis(a, b){
+//     console.log(this)
+//     function sum(){
+//         console.log(this)
+//         return  a + b
+//     }
+//
+//     console.log(sum());
+// }
+// showThis(4, 5)
 
+// const obj = {
+//     a: 20,
+//     b: 15,
+//     sum: function (){
+//         function shout(){
+//             console.log(this)
+//         }
+//         shout()
+//     }
+// }
+// obj.sum()
 
+// function User(name, id){
+//     this.name = name;
+//     this.id = id;
+//     this.human = true;
+// }
+// let ivan = new User('Ivan', 23);
+
+// function sayName(surname){
+//     console.log(this);
+//     console.log(this.name + ' ' + surname)
+// }
+// const user = {
+//     name: 'John'
+// }
+// sayName.call(user, 'Valetovich');
+// sayName.apply(user,['Herovich']);
+//
+// function count(num){
+//     return this * num;
+// }
+// const double = count.bind(2);
+// console.log(double(3))
+//
+//
+
+// 1) Обычная функция: this = window, if 'use strict' - undefined
+// 2) Контекст у методов объекта - сам объект
+// 3) this в конструкторах и классах - новый экземпляр объекта
+// 4) Ручная привязка this: call, apply, bind
+
+// const btn = document.querySelector('.b-1');
+// btn.addEventListener('click', function (){
+//     console.log(this);
+//     this.style.background = 'red';
+// })
+
+const obj = {
+    num: 5,
+    sayNumber: function (){
+        const say = () => {
+            console.log(this.num)
+        };
+        say()
+    }
+}
+obj.sayNumber()
+
+const btn = document.querySelector('.b-1');
+
+btn.addEventListener('click', (e)=> {
+    console.log(this);
+    e.target.style.background = 'red';
+})
+
+const double = a => a * 2;
+console.log(double(5))
 
 
 
