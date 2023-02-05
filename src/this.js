@@ -15,7 +15,6 @@
 // console.log(window.age)
 
 
-
 //============ 2 Funtions(not arrow!!!)=========
 
 //1. Ключевое слово new
@@ -31,8 +30,6 @@
 // }
 // foo() ---> this === undefined === window
 // foo()
-
-
 
 
 // --- вызывается от имени обЪекта ---> this = тому, что слева от точки
@@ -99,7 +96,6 @@
 // setTimeout(alex1.showAge, 1000)
 // setTimeout(alex1.showAge.bind(alex1), 1000)
 // setTimeout(()=>{alex1.showAge()}, 1000)
-
 
 
 //================= new ===============
@@ -191,15 +187,97 @@
 
 
 // ====================== Practice ==============
+//
+// const user = {
+//     group: 'Samurai-1',
+//     students: ["Alex", "Hanna"],
+//     showGroupUsers(){
+//         this.students.forEach((function (student){
+//             console.log(this.group + ' ' + student)
+//         }).bind(user))
+//     }
+// }
+// user.showGroupUsers()
 
-const user = {
-    group: 'Samurai-1',
-    students: ["Alex", "Hanna"],
-    showGroupUsers(){
-        this.students.forEach((function (student){
-            console.log(this.group + ' ' + student)
-        }).bind(user))
-    }
-}
-user.showGroupUsers()
+
+// function hello() {
+//     console.log('Hello', this)
+// }
+
+// hello()
+// window.hello()
+
+// const person = {
+//     name: "Vladilen",
+//     age: 25,
+//     sayHello: hello,
+//     sayHelloWindow: hello.bind(document),
+//     logInfo: function (job, phone) {
+//         console.group(`${this.name} info:`)
+//         console.log(`Name is ${this.name}`)
+//         console.log(`Age is ${this.age}`)
+//         console.log(`Job is ${job}`)
+//         console.log(`Phone is ${phone}`)
+//         console.groupEnd()
+//     }
+// }
+// person.sayHello()
+// person.sayHelloWindow()
+// person.logInfo()
+
+// const lena = {
+//     name: 'Elena',
+//     age: 23
+// }
+// person.logInfo.bind(lena)('Amazon', '555-55-55')
+// const fnLenaInfoLog = person.logInfo.bind(lena,'Amazon', '555-55-55')
+// fnLenaInfoLog()
+
+// person.logInfo.bind(lena, 'Amazon', '555-55-55')()
+// person.logInfo.call(lena, 'Amazon', '555-55-55')
+// person.logInfo.apply(lena, ['Frontend', '222-22-22'])
+
+// const array = [1, 2, 3, 4, 5]
+// function multBy(arr,n) {
+//     return arr.map(function(i){
+//         return i * n
+//     })
+// }
+//
+// console.log(multBy(array, 2))
+// Array.prototype.multBy = function (n){
+//     return this.map(function(i){
+//         return i * n
+//     })
+// }
+// console.log(array.multBy(2))
+
+// Array.prototype.sumBy = function (n){
+//     return this.map(el => el + n)
+// }
+// console.log(array.sumBy(10))
+// Array.prototype.divideBy = function (n) {
+//     return this.map(el => el / n)
+// }
+// console.log([10, 20, 30, 40, 50].divideBy(10))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const b1 = document.querySelector('.b-1')
+// b1.onclick = test;
+// function test(){
+//     this.style.background = 'orange';
+// }
+
 
