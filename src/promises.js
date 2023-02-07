@@ -45,16 +45,16 @@
 // const promise2 = promise.then((result)=>{console.log(result)})
 // promise2.then((result)=>{console.log(result)})
 
-const alex = {
-    askFile(){
-        return new Promise((resolve, reject)=>{
-            setTimeout(()=>{
-                // resolve('Users')
-                reject(new Error('Can not open file'))
-            }, 2000)
-        })
-    }
-}
+// const alex = {
+//     askFile(){
+//         return new Promise((resolve, reject)=>{
+//             setTimeout(()=>{
+//                 // resolve('Users')
+//                 reject(new Error('Can not open file'))
+//             }, 2000)
+//         })
+//     }
+// }
 
 
 // alex.askFile()
@@ -81,35 +81,200 @@ const alex = {
 //         console.log('Then')
 //     })
 
-alex.askFile()
-    .catch(()=>{
-        console.log('Catch')
-        console.log(age)
+// alex.askFile()
+//     .catch(()=>{
+//         console.log('Catch')
+//         console.log(age)
+//     })
+//     .then(()=>{
+//         console.log('Then')
+//     })
+//     .then(()=>{
+//         console.log('Then1')
+//     })
+//     .catch(()=>{
+//         console.log('Catch1')
+//     })
+
+// alex.askFile()
+//     .catch(()=>{
+//         console.log('Catch')
+//         console.log(age)
+//     })
+//     .catch(()=>{
+//         console.log('Catch1')
+//     })
+//     .then(()=>{
+//         console.log('Then')
+//     })
+//     .then(()=>{
+//         console.log('Then1')
+//     })
+//
+
+// const alex = {
+//     askFile(){
+//         return new Promise((resolve, reject)=>{
+//             setTimeout(()=>{
+//                 // resolve('Users')
+//                 reject(new Error('Can not open file'))
+//             }, 2000)
+//         })
+//     }
+// }
+
+// alex.askFile()
+//     .then(()=>{
+//         console.log('Then')
+//     })
+//     .then(()=>{
+//         console.log('Then1')
+//         console.log(age)
+//     })
+//     .catch(()=>{
+//         console.log('Catch')
+//     })
+//     .then(()=>{
+//         console.log('Then2')
+//     })
+//     .then(()=>{
+//         console.log('Then3')
+//     })
+//     .catch(()=>{
+//         console.log('Catch1')
+//     })
+
+// alex.askFile()
+//     .then(()=>{
+//         console.log('Then')
+//     })
+//     .then(()=>{
+//         console.log('Then1')
+//         console.log(age)
+//     })
+//     .then(()=>{
+//         console.log('Then2')
+//     })
+//     .then(()=>{
+//         console.log('Then3')
+//     })
+//     .catch(()=>{
+//         console.log('Catch1')
+//     })
+
+// alex.askFile()
+//     .then(()=>{
+//         console.log('Then')
+//     })
+//     .then(()=>{
+//         console.log('Then1')
+//         console.log(age)
+//     })
+//     .catch(()=>{
+//         console.log('Catch1')
+//     })
+//     .then(()=>{
+//         console.log('Then2')
+//     })
+//     .then(()=>{
+//         console.log('Then3')
+//     })
+
+
+// alex.askFile()
+//     .finally(()=>{
+//         console.log('Finally')
+//         console.log(age)
+//     })
+//     .catch(()=>{
+//         console.log('Catch')
+//     })
+//     .then(()=>{
+//         console.log('Then')
+//     })
+
+const alex = {
+    askFile() {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('Users')
+                // reject(new Error('Can not open file'))
+            }, 2000)
+        })
+    }
+}
+
+// alex.askFile()
+//     .finally(()=>{
+//         console.log('Finally')
+//         console.log(age)
+//     })
+//     .catch(()=>{
+//         console.log('Catch')
+//     })
+//     .then(()=>{
+//         console.log('Then')
+//     },
+//         ()=>{
+//             console.log('Then catch')
+//         }
+//         )
+//     .then(()=>{
+//         console.log('Then1')
+//     })
+
+// alex.askFile()
+//     .then(()=>{
+//         console.log('Then')
+//     })
+//     .catch(()=>{
+//         console.log('Catch')
+//     })
+//     .finally(()=>{
+//         console.log('Finally')
+//     })
+
+// alex.askFile().then((res)=>{
+//     console.log(res)
+// })
+//
+// alex.askFile().then((res)=>{
+//     console.log(res)
+// })
+//
+// alex.askFile().then((res)=>{
+//     console.log(res)
+// })
+
+
+// const promise = alex.askFile()
+//
+// promise.then((res)=>{
+//     console.log(res)
+// })
+//
+// promise.then((res)=>{
+//     console.log(res)
+// })
+//
+// promise.then((res)=>{
+//     console.log(res)
+// })
+
+const promise = alex.askFile()
+
+promise
+    .then((res) => {
+        console.log(res)
     })
-    .then(()=>{
-        console.log('Then')
+    .then((res) => {
+        console.log(res)
+    }) //undefined
+
+promise
+    .then((res) => {
+        console.log(res)
     })
-    .then(()=>{
-        console.log('Then1')
-    })
-    .catch(()=>{
-        console.log('Catch1')
-    })
-    //promise
-
-
-//1.23
-
-
-
-
-
-
-
-
-
-
-
 
 
 
