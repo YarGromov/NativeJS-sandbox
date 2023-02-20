@@ -377,7 +377,7 @@
 //     console.log(this)
 // }
 // showThis()
-'use strict';
+// 'use strict';
 // function showThis(a, b){
 //     console.log(this)
 //     function sum(){
@@ -437,26 +437,80 @@
 //     this.style.background = 'red';
 // })
 
-const obj = {
-    num: 5,
-    sayNumber: function (){
-        const say = () => {
-            console.log(this.num)
-        };
-        say()
-    }
+// const obj = {
+//     num: 5,
+//     sayNumber: function (){
+//         const say = () => {
+//             console.log(this.num)
+//         };
+//         say()
+//     }
+// }
+// obj.sayNumber()
+//
+// const btn = document.querySelector('.b-1');
+//
+// btn.addEventListener('click', (e)=> {
+//     console.log(this);
+//     e.target.style.background = 'red';
+// })
+//
+// const double = a => a * 2;
+// console.log(double(5))
+// -------------------------------------------------
+// function foo(a,b){
+//     console.log(this)
+//     console.log(a,b)
+// }
+//
+// const user = {
+//     name: 'Alex'
+// }
+// foo.call({name: 'John'}, 1,2)
+// foo.apply({name: 'Hanna'},[3,4])
+
+// function foo(a,b){
+//     console.log(this)
+//     console.log(a,b)
+// }
+//-------------
+// const bindedFoo = foo.bind({name: 'Leroy'})
+// bindedFoo()
+// foo.bind({name: 'Leroy2'})()
+//-------------
+// foo.bind({name: 'Hermiona'}, 1,2)()
+// foo.bind({name: 'Hermiona2'})(3,4)
+// foo.bind({name: 'Hermiona3'},5)(6)
+
+function User(){
+    console.log(this)
 }
-obj.sayNumber()
+User.bind({myCustomObj: 'Hello'})()
+new (User.bind({myCustomObj: 'Hello'}))()
 
-const btn = document.querySelector('.b-1');
 
-btn.addEventListener('click', (e)=> {
-    console.log(this);
-    e.target.style.background = 'red';
-})
 
-const double = a => a * 2;
-console.log(double(5))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
