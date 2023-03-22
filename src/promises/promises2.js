@@ -1,7 +1,8 @@
 
 let myPromise = new Promise((resolve, reject)=>{
   setTimeout(()=>{
-      resolve()
+      const randValue = Math.random()
+      resolve(randValue)
   },2000)
     console.log(1)
     console.log(2)
@@ -9,7 +10,10 @@ let myPromise = new Promise((resolve, reject)=>{
 })
 console.log(myPromise)
 
-myPromise.then(()=>{
-    console.log("My promise was resolved")
+myPromise.then((res)=>{
+    console.log("My promise was resolved: " + res)
+    console.log(myPromise)
 })
+
+
 
