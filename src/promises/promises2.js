@@ -82,16 +82,31 @@
 // let pr4 = pr3.then((n)=>console.log("pr3: " + n))
 //
 //-------------------------------
-api.sendStudentsCountToItKamasutra(20)
-    .then(res => {
-        console.log(res.data);
-    })
+// api.sendStudentsCountToItKamasutra(20)
+//     .then(res => {
+//         console.log(res.data);
+//     })
 // ----------------------------------------
 
 
 
 
+let msPromise = api.getVacanciesCountFromMicrosoft()
+let googlePromise = api.getVacanciesCountFromGoogle()
 
+let aggregatedPromise = Promise.all([msPromise, googlePromise])
+
+aggregatedPromise.then((res)=>{
+    let resFromMs = res[0].data.vacancies;
+    let resFromGoogle = res[1].data.vacancies;
+
+    api.sendStudentsCountToItKamasutra(resFromMs + resFromGoogle)
+        .then(res => {
+            console.log(res.data);
+        });
+})
+
+//------------------------------
 
 
 
