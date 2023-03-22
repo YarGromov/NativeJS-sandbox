@@ -7,6 +7,12 @@ const api = {
         return axios.get("https://microsoft.com");
     },
     getVacanciesCountFromGoogle() {
-        return axios.get("https://google.com");
+        return axios.get("https://google.com")
+            .then((res)=>{
+                return res
+            })
+            .then((res)=>{
+                return res.data.vacancies
+            })
     }
 }

@@ -91,26 +91,27 @@
 
 
 
-let msPromise = api.getVacanciesCountFromMicrosoft()
-let googlePromise = api.getVacanciesCountFromGoogle()
-
-let aggregatedPromise = Promise.all([msPromise, googlePromise])
-
-aggregatedPromise.then((res)=>{
-    let resFromMs = res[0].data.vacancies;
-    let resFromGoogle = res[1].data.vacancies;
-
-    api.sendStudentsCountToItKamasutra(resFromMs + resFromGoogle)
-        .then(res => {
-            console.log(res.data);
-        });
-})
+// let msPromise = api.getVacanciesCountFromMicrosoft()
+// let googlePromise = api.getVacanciesCountFromGoogle()
+//
+// let aggregatedPromise = Promise.all([msPromise, googlePromise])
+//
+// aggregatedPromise.then((res)=>{
+//     let resFromMs = res[0].data.vacancies;
+//     let resFromGoogle = res[1].data.vacancies;
+//
+//     api.sendStudentsCountToItKamasutra(resFromMs + resFromGoogle)
+//         .then(res => {
+//             console.log(res.data);
+//         });
+// })
 
 //------------------------------
 
+let googlePromise = api.getVacanciesCountFromGoogle()
+googlePromise.then(res => console.log(res))
 
 
-
-
+//2:00:00
 
 
