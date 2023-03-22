@@ -11,9 +11,11 @@ let myPromise = new Promise((resolve, reject)=>{
 console.log(myPromise)
 
 myPromise.then((res)=>{
-    console.log("My promise was resolved: " + res)
-    console.log(myPromise)
+    console.log("Subscriber 1: " + res)
 })
 
+myPromise.then((res)=>{
+    console.log("Subscriber 2: " + res)
+})
 
 
