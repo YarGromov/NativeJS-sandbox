@@ -37,23 +37,26 @@
 // promise3.then( () => console.log('и я') );
 
 
-
 const doAfter = (seconds) => {
-    let newPromise =  new Promise((res, rej)=>{
-        setTimeout(()=>{
+    let newPromise = new Promise((res, rej) => {
+        setTimeout(() => {
             const randValue = Math.random()
-            if (randValue > 0.5){
+            if (randValue > 0.1) {
                 res(randValue)
-            } else{
+            } else {
                 rej(randValue)
             }
-        }, seconds*1000)
+        }, seconds * 1000)
     })
     return newPromise
 }
-doAfter(2).then(()=> console.log('result')).catch(()=>console.log('Error'))
+// doAfter(2).then(()=> console.log('result')).catch(()=>console.log('Error'))
 
+let promise1 = doAfter(1);
 
+promise1.then(() => console.log(1))
+    .then(() => console.log(2))
+    .then(() => console.log(3))
 
 
 
