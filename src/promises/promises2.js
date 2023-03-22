@@ -37,28 +37,56 @@
 // promise3.then( () => console.log('и я') );
 
 
-const doAfter = (seconds) => {
-    let newPromise = new Promise((res, rej) => {
-        setTimeout(() => {
-            const randValue = Math.random()
-            if (randValue > 0.1) {
-                res(randValue)
-            } else {
-                rej(randValue)
-            }
-        }, seconds * 1000)
-    })
-    return newPromise
-}
+// const doAfter = (seconds) => {
+//     let newPromise = new Promise((res, rej) => {
+//         setTimeout(() => {
+//             const randValue = Math.random()
+//             if (randValue > 0.1) {
+//                 res(randValue)
+//             } else {
+//                 rej(randValue)
+//             }
+//         }, seconds * 1000)
+//     })
+//     return newPromise
+// }
 // doAfter(2).then(()=> console.log('result')).catch(()=>console.log('Error'))
 
-let promise1 = doAfter(1);
-
-promise1.then(() => console.log(1))
-    .then(() => console.log(2))
-    .then(() => console.log(3))
-
-
+// let pr1 = doAfter(1);
+//
+// pr1
+//     .then((n)=>{
+//         console.log(n)
+//         return n * 1000
+//     })
+//     .then((n)=>{
+//         console.log(n)
+//         return n * 1000
+//     })
+//     .then((n)=>{
+//         console.log(n)
+//         return n * 1000
+//     })
+//
+// let pr2 = pr1.then((n)=>{
+//     console.log("pr1: " + n)
+//     return n * 1000
+// })
+//
+// let pr3 = pr2.then((n)=>{
+//     console.log("pr2: " + n)
+//     return n * 1000
+// })
+//
+//
+// let pr4 = pr3.then((n)=>console.log("pr3: " + n))
+//
+//-------------------------------
+api.sendStudentsCountToItKamasutra(20)
+    .then(res => {
+        console.log(res.data);
+    })
+// ----------------------------------------
 
 
 
