@@ -29,9 +29,7 @@ const u222 = new User('Artem', 'it-incubator.by', new Date(1989, 10, 12))
 u111.name = 'Egor'
 
 
-let users = [u111, u222]
 
-// users.forEach(u => u.hello())
 
 class Coder extends User{
     constructor(name, site, dob, tech) {
@@ -50,7 +48,7 @@ class Coder extends User{
 }
 
 const coder1 = new Coder('Dimych Coder', 'it-incubator.by', new Date(1988, 1, 2), 'c#')
-coder1.code()
+
 
 class Hacker extends Coder{
     constructor(a, b, c, d) {
@@ -63,8 +61,12 @@ class Hacker extends Coder{
 }
 
 const hacker = new Hacker('Artem Hacker', 'it-incubator.by', new Date(1988, 1, 2), 'Python')
-hacker.hello()
 
+
+
+let users = [u111, u222, coder1, hacker]
+
+users.forEach(u => u.hello())
 
 
 
