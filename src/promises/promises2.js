@@ -149,24 +149,40 @@
 // loadVacanciesPromiseVersion()
 
 
-async function loadVacanciesAsyncAwaitVersion() {
-    let msCount = await api.getVacanciesCountFromMicrosoft()
-    console.log(msCount)
+// async function loadVacanciesAsyncAwaitVersion() {
+//         let msCount = await api.getVacanciesCountFromMicrosoft()
+//         console.log(msCount)
+//         let googleCount = await api.getVacanciesCountFromGoogle()
+//         console.log(googleCount)
+//         let res = await api.sendStudentsCountToItKamasutra(msCount + googleCount)
+//         console.log(res.data)
+// }
+// loadVacanciesAsyncAwaitVersion()
 
-    let googleCount = await api.getVacanciesCountFromGoogle()
-    console.log(googleCount)
+//
+// async function loadVacanciesAsyncAwaitParallel() {
+//     let msPr =  api.getVacanciesCountFromMicrosoft()
+//
+//     let googlePr = api.getVacanciesCountFromGoogle()
+//
+//     let allRes = await Promise.all([msPr,googlePr])
+//
+//     let res = await api.sendStudentsCountToItKamasutra(allRes[0] + allRes[1])
+//
+//     console.log(res.data)
+// }
+// loadVacanciesAsyncAwaitParallel()
 
-    let res = await api.sendStudentsCountToItKamasutra(msCount + googleCount)
+
+async function loadVacanciesAsyncAwaitParallel2() {
+
+    let allRes = await Promise.all([api.getVacanciesCountFromMicrosoft(),api.getVacanciesCountFromGoogle()])
+
+    let res = await api.sendStudentsCountToItKamasutra(allRes[0] + allRes[1])
+
     console.log(res.data)
-
 }
-loadVacanciesAsyncAwaitVersion()
-
-
-
-
-
-
+loadVacanciesAsyncAwaitParallel2()
 
 
 
