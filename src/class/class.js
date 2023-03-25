@@ -26,5 +26,58 @@ const u111 = new User('Dimych', 'it-incubator.by', new Date(1988, 1, 2))
 const u222 = new User('Artem', 'it-incubator.by', new Date(1989, 10, 12))
 
 
-u111.name = 'Igor1'
-console.log(u111.name)
+u111.name = 'Egor'
+
+
+let users = [u111, u222]
+
+// users.forEach(u => u.hello())
+
+class Coder extends User{
+    constructor(name, site, dob, tech) {
+        super(name, site, dob)
+        this.tech = tech;
+    }
+
+    code(){
+        console.log(`I am ${this.name}, here is my ${this.tech} code: var sum = (a,b) => a + b`)
+    }
+
+    hello(){
+        super.hello();
+        console.log('Go away!!! ' + this.name)
+    }
+}
+
+const coder1 = new Coder('Dimych Coder', 'it-incubator.by', new Date(1988, 1, 2), 'c#')
+coder1.code()
+
+class Hacker extends Coder{
+    constructor(a, b, c, d) {
+        super();
+        this.tech = 'xxx';
+    }
+    code(){
+        console.log('I will hack everything')
+    }
+}
+
+const hacker = new Hacker('Artem Hacker', 'it-incubator.by', new Date(1988, 1, 2), 'Python')
+hacker.hello()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
