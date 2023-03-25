@@ -89,29 +89,44 @@
 // ----------------------------------------
 
 
+let msPromise = api.getVacanciesCountFromMicrosoft()
+let googlePromise = api.getVacanciesCountFromGoogle()
+
+const allPromise = Promise.all([msPromise, googlePromise])
+
+allPromise.then((res) => {
+    let resFromMs = res[0];
+    let resFromGoogle = res[1];
+    console.log('MAKING REQUEST TO IT-KAMASUTRA')
+    return api.sendStudentsCountToItKamasutra(resFromMs + resFromGoogle)
+})
+    .then(res => {
+        console.log('from it-kamasutra: ' + res.data);
+    });
 
 
-// let msPromise = api.getVacanciesCountFromMicrosoft()
-// let googlePromise = api.getVacanciesCountFromGoogle()
-//
-// let aggregatedPromise = Promise.all([msPromise, googlePromise])
-//
-// aggregatedPromise.then((res)=>{
-//     let resFromMs = res[0].data.vacancies;
-//     let resFromGoogle = res[1].data.vacancies;
-//
-//     api.sendStudentsCountToItKamasutra(resFromMs + resFromGoogle)
-//         .then(res => {
-//             console.log(res.data);
-//         });
-// })
+// doAfter(1)
+//     .then(rand1 => {
+//         console.log(rand1)
+//         return rand1
+//     })
+//     .then(rand1 => {
+//         console.log(rand1)
+//         let pr2 = doAfter(5)
+//         return pr2
+//     })
+//     .then(rand2 => {
+//         console.log(rand2)
+//         return rand2
+//     })
+//     .then(rand2 => console.log(rand2))
 
 //------------------------------
 
-let googlePromise = api.getVacanciesCountFromGoogle()
-googlePromise.then(res => console.log(res))
+// let googlePromise = api.getVacanciesCountFromGoogle()
+// googlePromise.then(res => console.log("vacancies from Google: " + res))
+//
+// let mcPromise = api.getVacanciesCountFromMicrosoft()
+// mcPromise.then(res => console.log("vacancies from Microsoft: " + res))
 
-
-//2:00:00
-
-
+//------------------------------
