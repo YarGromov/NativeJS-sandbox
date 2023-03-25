@@ -88,21 +88,21 @@
 //     })
 // ----------------------------------------
 
+let msVacancies;
+api.getVacanciesCountFromMicrosoft()
+    .then((msCount=>{
+        console.log(msCount)
+        msVacancies = msCount;
+        return api.getVacanciesCountFromGoogle()
+    }))
+    .then((googleCount=>{
+        console.log(googleCount)
+        return api.sendStudentsCountToItKamasutra(googleCount + msVacancies)
+    }))
+    .then((res=>{
+        console.log('from it-kamasutra: ', res.data);
+    }))
 
-let msPromise = api.getVacanciesCountFromMicrosoft()
-let googlePromise = api.getVacanciesCountFromGoogle()
-
-const allPromise = Promise.all([msPromise, googlePromise])
-
-allPromise.then((res) => {
-    let resFromMs = res[0];
-    let resFromGoogle = res[1];
-    console.log('MAKING REQUEST TO IT-KAMASUTRA')
-    return api.sendStudentsCountToItKamasutra(resFromMs + resFromGoogle)
-})
-    .then(res => {
-        console.log('from it-kamasutra: ' + res.data);
-    });
 
 
 // doAfter(1)
