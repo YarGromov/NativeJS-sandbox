@@ -1,17 +1,20 @@
-
-class DeleteUserAction1 {
-    constructor() {
-        this.type = 'DELETE-USER';
-        this.payload = {
-            userId: userId
-        }
+class User {
+    constructor(name, site, dob) {
+        this.name = name;
+        this.site = site;
+        this.dateOfBirth = dob;
+        this.counter = 0;
     }
 
-
+    hello(){
+        this.counter++;
+        console.log(`I am ${this.name} from ${this.site}, counter: ${this.counter}`)
+    }
 }
 
-const action111 = new DeleteUserAction1(111111)
-const action222 = new DeleteUserAction1(222222)
+const u111 = new User('Dimych', 'it-incubator.by', new Date(1988, 1, 2))
+const u222 = new User('Artem', 'it-incubator.by', new Date(1989, 10, 12))
 
-console.log(action111)
-console.log(action222)
+
+u111.hello()
+u111.hello()

@@ -1,14 +1,17 @@
-const deleteUser = (userId) => {
-    const action = {
-        type: 'DELETE-USER',
-        payload: {
-            userId: userId
+const userFabric = (name) => {
+    const user = {
+       name: name,
+        site: 'it-incubator.by',
+        dateOfBirth: new Date(1988, 1, 2),
+        hello(){
+            console.log(`I am ${this.name} from ${this.site}`)
         }
     }
-    return action
+    return user
 }
 
-const action1 = deleteUser('123123')
-const action2 = deleteUser('444444')
+const u1 = userFabric('Dimych')
+const u2 = userFabric('Artem')
 
-
+// console.log(u1)
+// console.log(u2)
