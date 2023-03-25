@@ -88,21 +88,20 @@
 //     })
 // ----------------------------------------
 
-let msVacancies;
-api.getVacanciesCountFromMicrosoft()
-    .then((msCount=>{
-        console.log(msCount)
-        msVacancies = msCount;
-        return api.getVacanciesCountFromGoogle()
-    }))
-    .then((googleCount=>{
-        console.log(googleCount)
-        return api.sendStudentsCountToItKamasutra(googleCount + msVacancies)
-    }))
-    .then((res=>{
-        console.log('from it-kamasutra: ', res.data);
-    }))
-
+// let msVacancies;
+// api.getVacanciesCountFromMicrosoft()
+//     .then((msCount=>{
+//         console.log(msCount)
+//         msVacancies = msCount;
+//         return api.getVacanciesCountFromGoogle()
+//     }))
+//     .then((googleCount=>{
+//         console.log(googleCount)
+//         return api.sendStudentsCountToItKamasutra(googleCount + msVacancies)
+//     }))
+//     .then((res=>{
+//         console.log('from it-kamasutra: ', res.data);
+//     }))
 
 
 // doAfter(1)
@@ -130,3 +129,48 @@ api.getVacanciesCountFromMicrosoft()
 // mcPromise.then(res => console.log("vacancies from Microsoft: " + res))
 
 //------------------------------
+
+// function loadVacanciesPromiseVersion(){
+//     let msVacancies;
+//     api.getVacanciesCountFromMicrosoft()
+//         .then((msCount=>{
+//             console.log(msCount)
+//             msVacancies = msCount;
+//             return api.getVacanciesCountFromGoogle()
+//         }))
+//         .then((googleCount=>{
+//             console.log(googleCount)
+//             return api.sendStudentsCountToItKamasutra(googleCount + msVacancies)
+//         }))
+//         .then((res=>{
+//             console.log('from it-kamasutra: ', res.data);
+//         }))
+// }
+// loadVacanciesPromiseVersion()
+
+
+async function loadVacanciesAsyncAwaitVersion() {
+    let msCount = await api.getVacanciesCountFromMicrosoft()
+    console.log(msCount)
+
+    let googleCount = await api.getVacanciesCountFromGoogle()
+    console.log(googleCount)
+
+    let res = await api.sendStudentsCountToItKamasutra(msCount + googleCount)
+    console.log(res.data)
+
+}
+loadVacanciesAsyncAwaitVersion()
+
+
+
+
+
+
+
+
+
+
+
+
+
