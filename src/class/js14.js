@@ -111,9 +111,24 @@
 // console.log(alex.name)
 
 
-//======================
+//====================== Extends ============
+class Car {
+    run(){
+        console.log("Car rides")
+    }
+}
 
+class Ford extends Car { //Ford.prototype.__proto__ = Car.prototype
+    fordRun(){
+        console.log("Ford rides")
+    }
+}
 
+const mondeo = new Ford();
+
+mondeo.fordRun()
+mondeo.run()
+//==================================
 
 
 
