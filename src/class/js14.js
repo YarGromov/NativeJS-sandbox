@@ -112,27 +112,45 @@
 
 
 //====================== Extends ============
-class Car {
-    run(){
-        console.log("Car rides")
-    }
-}
-
-class Ford extends Car { //Ford.prototype.__proto__ = Car.prototype
-    fordRun(){
-        console.log("Ford rides")
-    }
-}
-
-const mondeo = new Ford();
-
-mondeo.fordRun()
-mondeo.run()
+// class Car {
+// static WHEELS_COUNT = 4
+//     run(){
+//         console.log("Car rides")
+//     }
+// }
+//
+// class Ford extends Car { //Ford.prototype.__proto__ = Car.prototype
+//     fordRun(){
+//         console.log("Ford rides")
+//     }
+// }
+//
+// const mondeo = new Ford();
+//
+// mondeo.fordRun()
+// mondeo.run()
+// console.log(Ford.WHEELS_COUNT)
 //==================================
 
 
+//========SUPER===========
 
+class Car {
+    constructor(name, age) {
+        this.name = name
+        this.age = age
+    }
+}
 
+class Ford extends Car{
+    constructor(name, age) {
+        super(name,age)
+    }
+}
+const ford = new Ford('Mondeo', 23)
+console.log(ford)
+
+//====================
 
 
 
