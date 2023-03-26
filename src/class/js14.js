@@ -10,23 +10,31 @@
 
 //class
 
-class User{
+// class User{
+//
+//     age = 23;
+//
+//     someFunc = () => {};
+//
+//     constructor(name) {
+//     this.name = name
+//     }
+//
+//     sayHi(){
+//         console.log(`Hello ${this.name}`)
+//     }
+// }
+// const user = new User('Anton')
+// console.log(user)
 
-    age = 23;
+class Test {
 
-    someFunc = () => {};
-
-    constructor(name) {
-    this.name = name
-    }
-
-    sayHi(){
-        console.log(`Hello ${this.name}`)
-    }
+    static defaultName = 'Default'
+    static hi = function (){}
 }
-const user = new User('Anton')
-console.log(user)
+const test = new Test()
 
+console.log(test.defaultName)  //undefined
 
 
 
