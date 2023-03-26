@@ -66,8 +66,52 @@
 // console.log(alex.getName())
 //===========
 
+//=============GET, SET ==========
+
+// class User {
+//     #name;
+//     constructor(name) {
+//         this.#name = name
+//     }
+//     getName(){
+//         return this.#name
+//     }
+//     setName(value){
+//         return this.#name = value
+//     }
+// }
+//
+// const alex = new User('Alex')
+//
+// console.log(alex.getName())
+// console.log(alex.setName('New name'))
+// console.log(alex.getName())
 
 
+// class User {
+//     #name;
+//     constructor(name) {
+//         this.#name = name
+//     }
+//
+//     get name(){
+//         console.log('GET')
+//         return this.#name
+//     }
+//
+//     set name(value){
+//         console.log('SET')
+//         return this.#name = value
+//     }
+// }
+//
+// const alex = new User('Alex')
+//
+// alex.name = 'Anton'
+// console.log(alex.name)
+
+
+//======================
 
 
 
